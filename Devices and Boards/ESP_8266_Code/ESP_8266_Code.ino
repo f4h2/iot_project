@@ -14,8 +14,8 @@ const char* password = "1234abcd";
 // MQTT
 const char* mqttServer = "broker.hivemq.com";
 const int mqttPort = 1883;
-// const char* mqtt_username = "your_mqtt_client_username";
-// const char* mqtt_password = "your_mqtt_client_password";
+const char* mqtt_username = "your_mqtt_client_username";
+const char* mqtt_password = "your_mqtt_client_password";
 WiFiClient espClient;
 PubSubClient client(espClient);
 
@@ -64,40 +64,40 @@ void setup() {
 }
 
 // DONE
-// void setup_wifi() {
-//   delay(10);
-//   Serial.println();
-//   Serial.print("Connecting to ");
-//   Serial.println(ssid);
+void setup_wifi() {
+  delay(10);
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
 
-//   WiFi.begin(ssid, password);
+  WiFi.begin(ssid, password);
 
-//   while (WiFi.status() != WL_CONNECTED) {
-//     delay(500);
-//     Serial.print(".");
-//   }
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
 
-//   Serial.println("");
-//   Serial.println("WiFi connected");
-//   Serial.println("IP address: ");
-//   Serial.println(WiFi.localIP());
-// }
+  Serial.println("");
+  Serial.println("WiFi connected");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+}
 
-// void reconnect() {
-//   while (!client.connected()) {
-//     Serial.print("Attempting MQTT connection...");
-//     String clientId = "ESP8266Client-";   // Create a random client ID
-//     clientId += String(random(0xffff), HEX);
-//     if (client.connect(clientId.c_str(), mqtt_username, mqtt_password)) {
-//       Serial.println("connected");
-//     } else {
-//       Serial.print("failed, rc=");
-//       Serial.print(client.state());
-//       Serial.println(" try again in 5 seconds");
-//       delay(5000);
-//     }
-//   }
-// }
+void reconnect() {
+  while (!client.connected()) {
+    Serial.print("Attempting MQTT connection...");
+    String clientId = "ESP8266Client-";   // Create a random client ID
+    clientId += String(random(0xffff), HEX);
+    if (client.connect(clientId.c_str(), mqtt_username, mqtt_password)) {
+      Serial.println("connected");
+    } else {
+      Serial.print("failed, rc=");
+      Serial.print(client.state());
+      Serial.println(" try again in 5 seconds");
+      delay(5000);
+    }
+  }
+}
 
 // Main
 void loop() {
