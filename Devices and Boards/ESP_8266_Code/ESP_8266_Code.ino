@@ -115,7 +115,7 @@ void loop() {
   // delay 2s - 1 message send
   String position = String(p1)+"-"+String(p2);
   if(count % 200 == 0 ){
-    Serial.print("Carpark Number 1 - 2: ");
+    Serial.print("Parking Slot Number 1 - 2: ");
     
     Serial.println(position);
     delay(500);
