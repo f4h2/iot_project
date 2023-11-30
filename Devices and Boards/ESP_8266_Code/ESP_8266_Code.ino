@@ -87,7 +87,7 @@ void reconnect() {
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
     String clientId = "ESP8266Client-";   // Create a random client ID
-    clientId += String(random(0xffff), HEX);
+    clientId += String(random(0xffff), HEX);  // Need to fix
     if (client.connect(clientId.c_str(), mqtt_username, mqtt_password)) {
       Serial.println("connected");
     } else {
@@ -114,7 +114,7 @@ void loop() {
 
   // delay 2s - 1 message send
   String position = String(p1)+"-"+String(p2);
-  if(count % 50 == 0 ){
+  if(count % 200 == 0 ){
     Serial.print("Carpark Number 1 - 2: ");
     
     Serial.println(position);
