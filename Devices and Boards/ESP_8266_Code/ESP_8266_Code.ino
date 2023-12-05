@@ -58,7 +58,7 @@ void setup() {
   setup_wifi();
   client.setServer(mqttServer, mqttPort);
 
- 	for (byte i = 0; i < 6; i++) {
+ 	for (byte i = 0; i < 6; i++) { // ?
  			key.keyByte[i] = 0xFF;
  	}
 }
@@ -204,5 +204,3 @@ String convertToHexString(byte *buffer, byte bufferSize) {
   }
   return result;
 }
-
-
