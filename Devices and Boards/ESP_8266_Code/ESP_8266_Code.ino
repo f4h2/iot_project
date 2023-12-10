@@ -250,7 +250,7 @@ void loop() {
           delay(200);
         }
       }
-      // else Serial.print(F("Invalid Card!!!"));
+      else Serial.print(F("Invalid Card!!!"));
  	}
   Serial.println();
   delay(500);
