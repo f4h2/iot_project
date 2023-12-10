@@ -74,19 +74,6 @@ emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=
 -----END CERTIFICATE-----
 )EOF";
 
-// void callback(char* topic, byte* payload, unsigned int length) {
-//   String incommingMessage = "";
-//   for (int i = 0; i < length; i++) incommingMessage+=(char)payload[i];
-
-//   Serial.println("Message arrived ["+String(topic)+"]"+incommingMessage);
-
-//   //--- check the incomming message
-//     if( strcmp(topic,"led_state") == 0){
-//      if (incommingMessage.equals("1")) digitalWrite(led, HIGH);   // Turn the LED on
-//      else digitalWrite(led, LOW);  // Turn the LED off
-//   }
-
-// }
 
 void publishMessage(const char* topic, String payload , boolean retained){
   if (client.publish(topic, payload.c_str(), true))
