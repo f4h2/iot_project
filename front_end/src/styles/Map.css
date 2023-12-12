@@ -1,0 +1,29 @@
+.MapContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Chiều cao 100% của viewport */
+  }
+  
+  .Infor {
+    text-align: center;
+  }
+  
+  .venue1,
+  .venue2,
+  .venue3 {
+    margin: 10px; /* Khoảng cách giữa các nút */
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .venue1.active,
+  .venue2.active,
+  .venue3.active {
+    background-color: #00f; /* Màu xanh da trời cho các nút active */
+    color: #fff; /* Màu chữ trắng để hiển thị rõ trên nền xanh da trời */
+  }
+  
+  .Gate {
+    margin-bottom: 20px; /* Khoảng cách giữa Gate và các nút phía dưới */
+  }
