@@ -10,12 +10,12 @@
 #define RST_PIN 3
 #define MAX_SIZE 2
 
-const char* ssid = "TOKHANH";
-const char* password = "1234abcd";
-const char* mqttServer = "bd5df580e574426986dde62f9307c993.s2.eu.hivemq.cloud";
+const char* ssid = "TOKHANH";           // FIX THIS
+const char* password = "1234abcd";      // FIX THIS
+const char* mqttServer = "bd5df580e574426986dde62f9307c993.s2.eu.hivemq.cloud";   // FIX THIS
 const int mqttPort = 8883;
-const char* mqttUser = "tocaohoang";
-const char* mqttPassword = "Ngay20thang8";
+const char* mqttUser = "tocaohoang";        // FIX THIS  
+const char* mqttPassword = "Ngay20thang8";  // FIX THIS
 WiFiClientSecure  espClient;
 PubSubClient client(espClient);
 
