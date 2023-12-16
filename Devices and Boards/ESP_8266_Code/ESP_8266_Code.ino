@@ -96,6 +96,7 @@ void reconnect() {
   }
 }
 
+// Main
 void loop() {
   if (!client.connected()) {
     reconnect();
@@ -108,7 +109,7 @@ void loop() {
   int x_close = digitalRead(ir_out);
   int p2 = digitalRead(ir5);
 
-  // delay 2s - 1 message
+  // delay 2s - 1 message send
   String position = String(p1)+"-"+String(p2);
   if(count % 50 == 0 ){
     Serial.print("Carpark Number 1 - 2: ");
@@ -152,7 +153,7 @@ void loop() {
  			uid = convertToHexString(rfid.uid.uidByte, rfid.uid.size);
       uid.toUpperCase();
       Serial.println(uid);
-      if(uid == " 23 7A 69 04" || uid == " 63 E4 20 0D")  {
+      if(uid == " 23 7A 69 04" || uid == " 63 E4 20 0D")  {  // If UID is invalid
 
         if(slot >= MAX_SIZE)  
           Serial.print(F("The car park is Full !"));
@@ -162,7 +163,7 @@ void loop() {
           isIn[uid]=1;
           Serial.print(F("The UID get In: "));
           Serial.print(uid);
-          client.publish("UID-In", uid.c_str());
+          client.publish("UID-In", uid.c_str());  // Send message
           for (int pos = 0; pos <= 180; pos += 1) {
             servo.write(pos);
             delay(3);
@@ -176,7 +177,7 @@ void loop() {
           isIn[uid] = 0;
           Serial.print(F("The UID get OUT: "));
           Serial.print(uid);
-          client.publish("UID-Out", uid.c_str());
+          client.publish("UID-Out", uid.c_str());  // Send message
           for (int pos = 0; pos <= 180; pos += 1) {
             servo2.write(pos);
             delay(3);
