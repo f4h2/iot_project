@@ -93,7 +93,7 @@ void reconnect() {
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
-      Serial.println(" try again in 5 seconds");
+      // Serial.println(" try again in 5 seconds");
       delay(5000);
     }
   }
